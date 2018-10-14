@@ -1,0 +1,16 @@
+﻿<html>
+<body>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+    <script>
+        const observable = Rx.Observable.forkJoin(
+            Rx.Observable.interval(1000).take(3), // emit 0, 1, 2 every second and complete
+            Rx.Observable.interval(500).take(4) // emit 0, 1, 2, 3 every half a second and complete
+        );
+        observable.subscribe(
+            value => console.log(value),
+            err => { },
+            () => console.log('This is how it ends!')
+        );
+    </script>
+</body>
+</html>

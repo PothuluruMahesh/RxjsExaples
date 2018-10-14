@@ -1,0 +1,9 @@
+﻿<html>
+<body>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+    <script>
+        var result = Rx.Observable.empty().startWith(7);
+        result.subscribe(x => console.log(x));
+    </script>
+</body>
+</html>

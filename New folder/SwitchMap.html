@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+    <title></title>
+</head>
+
+<body>
+    <button>Click</button>
+
+    <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+    <script>
+        var button = document.querySelector('button');
+
+        var obs1 = Rx.Observable.fromEvent(button, 'click');
+        var obs2 = Rx.Observable.interval(1000);
+
+        obs1.switchMap(event => {
+            return obs2
+        }).subscribe((value => console.log(value)));
+    </script>
+</body>
+</html>

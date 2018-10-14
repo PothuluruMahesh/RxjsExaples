@@ -1,0 +1,14 @@
+﻿<html>
+<body>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+    <script>
+        var interval = Rx.Observable.interval(1000);
+        var result = interval.mergeMap(x =>
+            x === 13 ?
+                Rx.Observable.throw('Thirteens are bad') :
+                Rx.Observable.of('a', 'b', 'c')
+        );
+        result.subscribe(x => console.log(x), e => console.error(e));
+    </script>
+</body>
+</html>
